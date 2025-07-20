@@ -7,6 +7,8 @@ class Product(models.Model):
     price=models.DecimalField(max_digits=6,decimal_places=2)
     description=models.TextField()
     image=models.ImageField(upload_to="products/")
+    slug = models.SlugField()
+
     def __str__(self):
         return self.name
     
