@@ -196,18 +196,17 @@
                                         <a data-toggle="collapse" data-target="#collapseSix">Tags</a>
                                     </div>
                                     <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
+
                                         <div class="card-body">
                                             <div class="shop__sidebar__tags">
-                                                <a href="#">Product</a>
-                                                <a href="#">Bags</a>
-                                                <a href="#">Shoes</a>
-                                                <a href="#">Fashio</a>
-                                                <a href="#">Clothing</a>
-                                                <a href="#">Hats</a>
-                                                <a href="#">Accessories</a>
+                                                {%for cat in categories%}
+                                                <a href="{% url 'store_cat' cat.slug %} ">{{cat.name}}</a>
+                                                {%endfor%}
                                             </div>
                                         </div>
+
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -234,7 +233,7 @@
                         </div>
                     </div>
                     <div class="row">
-                    {%for product in products%}
+                    {%for product in page_obj%}
 
                         
                         <div class="col-lg-4 col-md-6 col-sm-6">
@@ -242,7 +241,7 @@
 
 
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{product.image.url}}">
+                                <div class="product__item__pic set-bg" data-setbg="{{product.image_url}}">
                                     <ul class="product__hover">
                                         <li><a href="#"><img src="{% static "img/icon/heart.png" %} " alt=""></a></li>
                                         <li><a href="#"><img src="{% static "img/icon/compare.png" %} " alt=""> <span>Compare</span></a>
@@ -286,11 +285,21 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="product__pagination">
-                                <a class="active" href="#">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <span>...</span>
-                                <a href="#">21</a>
+                                {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">Prev</a>
+  {% endif %}
+
+  {% for num in page_obj.paginator.page_range %}
+    {% if num == page_obj.number %}
+      <a class="active" href="?page={{ num }}">{{ num }}</a>
+    {% elif num > page_obj.number|add:-3 and num < page_obj.number|add:3 %}
+      <a href="?page={{ num }}">{{ num }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+  {% endif %}
                             </div>
                         </div>
                     </div>
@@ -316,6 +325,8 @@
     <script src="{% static "js/mixitup.min.js" %}     "></script>
     <script src="{% static "js/owl.carousel.min.js" %}     "></script>
     <script src="{% static "js/main.js" %}     "></script>
+    <script src="{% static 'js/set-bg.js' %}"></script>
+
 
 </body>
 
