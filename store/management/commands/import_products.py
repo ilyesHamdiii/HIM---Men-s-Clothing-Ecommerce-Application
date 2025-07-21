@@ -5,7 +5,6 @@ from store.models import Product, Category
 
 
 def generate_unique_slug(model, base_slug):
-    """Génère un slug unique basé sur un modèle et un slug de base"""
     slug = base_slug
     counter = 1
     while model.objects.filter(slug=slug).exists():
