@@ -32,7 +32,7 @@ class Order(models.Model):
     items = models.CharField(max_length=100)
     date = models.DateField(auto_now_add=True)
     complete = models.BooleanField(default=False)
-    transaction_id = models.CharField(max_length=100)  # Fixed: should be CharField not IntegerField with max_length
+    transaction_id = models.CharField(max_length=100)  
 
 class OrderItem(models.Model):
     product = models.CharField(max_length=100)

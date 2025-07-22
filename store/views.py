@@ -44,13 +44,31 @@ def store(request):
 
     }
     return render(request, 'store/shop.html', context)
-def store_cat(request, category):
-    categorys=Category.objects.all()
-    products = Product.objects.filter(slug=category)
+def store_cat(request,slug):
+    category=Category.objects.get(slug=slug)
+    products = Product.objects.filter(category=category).order_by('id')
+    paginator = Paginator(products,20)  
+    page_number = request.GET.get('page')  
+    page_obj = paginator.get_page(page_number)
+
+
+
+
+    print(category)
+    categories=Category.objects.all()
     context={
-        "products": products,
-        "categories": categorys,
+        "page_obj": page_obj, 
+        "categories": categories,
+        "selected_category": category,
 
     }
-    print(categorys)
     return render(request, "store/shop.html", context)
+
+
+def store_cat2(request,slug):
+    price = request.GET.get("price")
+    products=Product.objects.filter(price=price)
+    context={
+        "products":products,
+    }
+    return render(request,"store/shop.html",context) 

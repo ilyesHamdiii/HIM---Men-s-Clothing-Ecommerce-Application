@@ -107,9 +107,9 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__price">
                                                 <ul>
-                                                    <li><a href="#">$0.00 - $50.00</a></li>
-                                                    <li><a href="#">$50.00 - $100.00</a></li>
-                                                    <li><a href="#">$100.00 - $150.00</a></li>
+                                                    <li><a href="{% url 'store_cat2'  %}?price=50">$0.00 - $50.00</a></li>
+                                                    <li><a href="{url 'store_cat2' 100}">$50.00 - $100.00</a></li>
+                                                    <li><a href="{url 'store_cat2' 150}">$100.00 - $150.00</a></li>
                                                     <li><a href="#">$150.00 - $200.00</a></li>
                                                     <li><a href="#">$200.00 - $250.00</a></li>
                                                     <li><a href="#">250.00+</a></li>
@@ -200,7 +200,7 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__tags">
                                                 {%for cat in categories%}
-                                                <a href="{% url 'store_cat' cat.slug %} ">{{cat.name}}</a>
+                                                <a href="{% url 'store_cat' cat.slug %}" >{{cat.name}}</a>
                                                 {%endfor%}
                                             </div>
                                         </div>
@@ -239,7 +239,6 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
 
 
-
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="{{product.image_url}}">
                                     <ul class="product__hover">
@@ -274,6 +273,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                     {%endfor%}
 
 

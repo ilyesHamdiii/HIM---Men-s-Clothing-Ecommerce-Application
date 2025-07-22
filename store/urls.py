@@ -13,8 +13,9 @@ urlpatterns = [
     path("men/",views.men,name="men"),
     path("women/",views.women,name="women"),
     path("product/<int:product_id>/",views.detail,name="product_detail"),
-    path("store_cat/<slug:category>/",views.store_cat,name="store_cat"),
+    path("store_cat/<slug:slug>/",views.store_cat,name="store_cat"),
+    path("store_cat2/<int:price>/",views.store_cat,name="store_cat2"),
     
-    path("shop",views.store)
+    path("shop",views.store,name="shop")
    
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
