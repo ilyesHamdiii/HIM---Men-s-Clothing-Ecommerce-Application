@@ -107,12 +107,11 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__price">
                                                 <ul>
-                                                    <li><a href="{% url 'store_cat2'  %}?price=50">$0.00 - $50.00</a></li>
-                                                    <li><a href="{url 'store_cat2' 100}">$50.00 - $100.00</a></li>
-                                                    <li><a href="{url 'store_cat2' 150}">$100.00 - $150.00</a></li>
-                                                    <li><a href="#">$150.00 - $200.00</a></li>
-                                                    <li><a href="#">$200.00 - $250.00</a></li>
-                                                    <li><a href="#">250.00+</a></li>
+                                                    <li><a href="{% url 'store_cat2'  %}?min=0&max=250">$0.00 - $250.00</a></li>
+                                                    <li><a href="{% url 'store_cat2'  %}?min=250&max=500">$50.00 - $500.00</a></li>
+                                                    <li><a href="{% url 'store_cat2'  %}?min=500&max=750">$500.00 - $750.00</a></li>
+                                                    <li><a href="{% url 'store_cat2'  %}?min=750&max=850">$750.00 - $850.00</a></li>
+                                                    <li><a href="{% url 'store_cat2'  %}?min=950&max=500000">+$950.00</a></li>
                                                 </ul>
                                             </div>
                                         </div>

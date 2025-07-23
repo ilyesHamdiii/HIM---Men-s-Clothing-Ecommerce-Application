@@ -14,7 +14,7 @@ urlpatterns = [
     path("women/",views.women,name="women"),
     path("product/<int:product_id>/",views.detail,name="product_detail"),
     path("store_cat/<slug:slug>/",views.store_cat,name="store_cat"),
-    path("store_cat2/<int:price>/",views.store_cat,name="store_cat2"),
+    path("store_cat2/",views.store_cat2,name="store_cat2"),
     
     path("shop",views.store,name="shop")
    
