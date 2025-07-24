@@ -5,7 +5,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
 from django.urls import re_path
-
 urlpatterns = [
     path('',views.home,name='home'),
     path("test/",views.test),
@@ -16,6 +15,8 @@ urlpatterns = [
     path("store_cat/<slug:slug>/",views.store_cat,name="store_cat"),
     path("store_cat2/",views.store_cat2,name="store_cat2"),
     
-    path("shop",views.store,name="shop")
+    path("shop",views.store,name="shop"),
+    path("",include('cart.urls'))
+
    
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

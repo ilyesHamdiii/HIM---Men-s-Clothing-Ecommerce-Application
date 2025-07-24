@@ -96,7 +96,7 @@
                                                     <li><a href="#">Gucci</a></li>
                                                 </ul>
                                             </div>
-                                          </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="card">
@@ -107,11 +107,12 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__price">
                                                 <ul>
-                                                    <li><a href="{% url 'store_cat2'  %}?min=0&max=250">$0.00 - $250.00</a></li>
-                                                    <li><a href="{% url 'store_cat2'  %}?min=250&max=500">$50.00 - $500.00</a></li>
-                                                    <li><a href="{% url 'store_cat2'  %}?min=500&max=750">$500.00 - $750.00</a></li>
-                                                    <li><a href="{% url 'store_cat2'  %}?min=750&max=850">$750.00 - $850.00</a></li>
-                                                    <li><a href="{% url 'store_cat2'  %}?min=950&max=500000">+$950.00</a></li>
+                                                    <li><a href="#">$0.00 - $50.00</a></li>
+                                                    <li><a href="#">$50.00 - $100.00</a></li>
+                                                    <li><a href="#">$100.00 - $150.00</a></li>
+                                                    <li><a href="#">$150.00 - $200.00</a></li>
+                                                    <li><a href="#">$200.00 - $250.00</a></li>
+                                                    <li><a href="#">250.00+</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -195,12 +196,13 @@
                                         <a data-toggle="collapse" data-target="#collapseSix">Tags</a>
                                     </div>
                                     <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
-
                                         <div class="card-body">
                                             <div class="shop__sidebar__tags">
-                                                {%for cat in categories%}
-                                                <a href="{% url 'store_cat' cat.slug %}" >{{cat.name}}</a>
-                                                {%endfor%}
+                                        {% for cat in categories%}
+
+                                                <a href="#" >{{cat.name}}</a>
+                                        {%endfor%}
+
                                             </div>
                                         </div>
 
@@ -232,7 +234,7 @@
                         </div>
                     </div>
                     <div class="row">
-                    {%for product in page_obj%}
+                    {%for product in page_obj%} 
 
                         
                         <div class="col-lg-4 col-md-6 col-sm-6">
@@ -249,7 +251,7 @@
                                 </div>
                                 <div class="product__item__text">
                                     <h6>{{product.name}}</h6>
-                                    <a href="{%url 'cart:add_to_cart' product.id%}" class="add-cart">+ Add To Cart</a>
+                                    <a href="#" class="add-cart">+ Add To Cart</a>
                                     <div class="rating">
                                         <i class="fa fa-star-o"></i>
                                         <i class="fa fa-star-o"></i>
@@ -272,7 +274,6 @@
                                 </div>
                             </div>
                         </div>
-                        
                     {%endfor%}
 
 
