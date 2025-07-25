@@ -107,11 +107,11 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__price">
                                                 <ul>
-                                                    <li><a href="{% url 'store_cat2'  %}?min=0&max=250">$0.00 - $250.00</a></li>
-                                                    <li><a href="{% url 'store_cat2'  %}?min=250&max=500">$50.00 - $500.00</a></li>
-                                                    <li><a href="{% url 'store_cat2'  %}?min=500&max=750">$500.00 - $750.00</a></li>
-                                                    <li><a href="{% url 'store_cat2'  %}?min=750&max=850">$750.00 - $850.00</a></li>
-                                                    <li><a href="{% url 'store_cat2'  %}?min=950&max=500000">+$950.00</a></li>
+                                                    <li><a href="{% url 'store:store_cat2'  %}?min=0&max=250">$0.00 - $250.00</a></li>
+                                                    <li><a href="{% url 'store:store_cat2'  %}?min=250&max=500">$50.00 - $500.00</a></li>
+                                                    <li><a href="{% url 'store:store_cat2'  %}?min=500&max=750">$500.00 - $750.00</a></li>
+                                                    <li><a href="{% url 'store:store_cat2'  %}?min=750&max=850">$750.00 - $850.00</a></li>
+                                                    <li><a href="{% url 'store:store_cat2'  %}?min=950&max=500000">+$950.00</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -199,7 +199,7 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__tags">
                                                 {%for cat in categories%}
-                                                <a href="{% url 'store_cat' cat.slug %}" >{{cat.name}}</a>
+                                                <a href="{% url 'store:store_cat' cat.slug %}" >{{cat.name}}</a>
                                                 {%endfor%}
                                             </div>
                                         </div>
@@ -244,7 +244,7 @@
                                         <li><a href="#"><img src="{% static "img/icon/heart.png" %} " alt=""></a></li>
                                         <li><a href="#"><img src="{% static "img/icon/compare.png" %} " alt=""> <span>Compare</span></a>
                                         </li>
-                                        <li><a href="{% url 'product_detail' product.id %}"><img src="{% static "img/icon/search.png" %} " alt=""></a></li>
+                                        <li><a href="{% url 'store:product_detail' product.id %}"><img src="{% static "img/icon/search.png" %} " alt=""></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
