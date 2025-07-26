@@ -2,9 +2,10 @@ from django.shortcuts import render
 from .models import  Product,Category
 from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator
-from cart.views import *
+from cart.views import view_cart
 def home(request):
-    return render(request,"store/home.html",{})
+    return render(request,"store/home.html",{
+    })
 """ def about(request):
     return render(request,"store/about.html") """
 def store2(request):

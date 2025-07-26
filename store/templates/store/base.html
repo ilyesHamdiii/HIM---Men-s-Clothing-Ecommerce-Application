@@ -120,8 +120,8 @@
                     <div class="header__nav__option">
                         <a href="#" class="search-switch"><img src="{% static "img/icon/search.png" %}   " alt=""></a>
                         <a href="#"><img src="{% static "img/icon/heart.png" %}   " alt=""></a>
-                        <a href="#"><img src="{% static "img/icon/cart.png" %}   " alt=""> <span>0</span></a>
-                        <div class="price">$0.00</div>
+                        <a href="{% url 'cart:view_cart'%}"><img src="{% static "img/icon/cart.png" %}   " alt=""> <span><strong>{{cart_total_count}}</strong></span></a>
+                        <div class="price">${{cart_total_price}}</div>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 {% extends "store/base.html" %}
 <!DOCTYPE html>
+{% load list_index %}
 {% load static %}
 <html lang="zxx">
 
@@ -61,6 +62,8 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="shopping__cart__table">
+                        <form method="POST" action="{% url 'cart:view_update_cart' %}">
+                        {% csrf_token %}
                         <table>
                             <thead>
                                 <tr>
@@ -72,6 +75,7 @@
                             </thead>
                             <tbody>
                                 {% for item in cart_items%}
+                                {% comment %} {% for i in range(n)%} {% endcomment %}
                                 <tr>
                                     <td class="product__cart__item">
                                         <div class="product__cart__item__pic">
@@ -82,16 +86,26 @@
                                             <h5>${{item.product.price}}</h5>
                                         </div>
                                     </td>
-                                    <form method="POST" action="{% url 'cart:view_update_cart' %}">
-                                            {% csrf_token %}
                                         <td class="quantity__item">
                                             <div class="quantity">
                                                 <div class="pro-qty-2">
-                                                    <input type="text" name="quantity_{{ item.product.id }}" value="{{ item.quantity }}" min=1 >
+                                                    <input type="number" name="quantity_{{ item.id }}" value="{{ item.quantity }}" min="1" style="-moz-appearance: textfield; appearance: textfield;">
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="cart__price">${{item.product.price}}</td>
+                                        <style>
+                                            /* Hide spinners in Chrome, Safari, Edge, Opera */
+                                            input[type=number]::-webkit-inner-spin-button, 
+                                            input[type=number]::-webkit-outer-spin-button {
+                                              -webkit-appearance: none;
+                                              margin: 0;
+                                            }
+                                            /* Hide spinners in Firefox */
+                                            input[type=number] {
+                                              -moz-appearance: textfield;
+                                            }
+                                            </style>
+                                        <td class="cart__price">${{product_price|index:forloop.counter0|default:"N/A" }}</td>
                                             <td class="cart__close">
                                             <a href="{% url 'cart:remove_from_cart' item.id %}">
                                                 <i class="fa fa-close"></i>
@@ -100,6 +114,7 @@
 
                                     </tr>
                                 {%endfor%}
+                                {% comment %} {%endfor%} {% endcomment %}
                             </tbody>
                         </table>
                     </div>
@@ -109,15 +124,10 @@
                                 <a href="{% url 'store:shop'%}">Continue Shopping</a>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <button type="submit " class="continue__btn update__btn">
-                                <a href="{% url 'cart:view_update_cart' %}"><i class="fa fa-spinner" ></i> Update cart</a>
-
-
-
-                                </button>
-                                    </form>
-
+                        <div class="col-lg-6 col-md-6 col-sm-6 text-right">
+                            <button type="submit" class="site-btn">
+                                <i class="fa fa-spinner"></i> Update cart
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -132,8 +142,8 @@
                     <div class="cart__total">
                         <h6>Cart total</h6>
                         <ul>
-                            <li>Subtotal <span>{{sub_total}}</span></li>
-                            <li>Total <span>{{total_price}}</span></li>
+                            <li>Subtotal <span>{{total_price}}</span></li>
+                            <li>Total <span>{{sub_total}}</span></li>
                         </ul>
                         <a href="{% url 'cart:checkout'%}" class="primary-btn">Proceed to checkout</a>
                     </div>
