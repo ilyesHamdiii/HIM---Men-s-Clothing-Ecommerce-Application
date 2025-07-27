@@ -18,7 +18,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         try:
-            with open('store/fixtures/x.json', 'r', encoding='utf-8-sig') as f:
+            with open('store/fixtures/clothing.json', 'r', encoding='utf-8-sig') as f:
                 data = json.load(f)
         except FileNotFoundError:
             self.stderr.write(self.style.ERROR("❌ 'fixture.json' not found."))

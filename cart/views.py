@@ -3,10 +3,18 @@ from django.contrib.sessions.models import Session
 from store.models import Product
 from .models import CartItem
 from django import template
+import stripe
+from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST             
+from django.contrib.auth.decorators import login_required     
+
 
 app_name='cart'
 
 # Create your views here.
+@login_required
 def view_cart(request):
     cart_items=CartItem.objects.filter(user=request.user)
     quantity=request.POST.get('quantity')
@@ -20,6 +28,8 @@ def view_cart(request):
     
     sub_total=(total_price/100)*120
     return render(request,"cart/shopping-cart.html",{"cart_items":cart_items,"total_price":total_price,"sub_total":sub_total,"product_price":product_price})
+
+@login_required
 def add_to_cart(request,product_id):
     product=Product.objects.get(id=product_id)
     cart_item,created=CartItem.objects.get_or_create(product=product,user=request.user)
@@ -27,11 +37,13 @@ def add_to_cart(request,product_id):
     cart_item.quantity+=1
     cart_item.save()
     return redirect("store:store_cat2")
+@login_required
 def remove_from_cart(request,product_id):
     cart_item=CartItem.objects.filter(id=product_id).first()
     if cart_item:
         cart_item.delete()
     return redirect("cart:view_cart")
+@login_required
 def update_cart(request):
     if request.method == "POST":
         cart_items = CartItem.objects.filter(user=request.user)
@@ -58,6 +70,7 @@ def update_cart(request):
             "product_price": product_price
         })
     return redirect("cart:view_cart")
+@login_required
 def checkout(request):
     lp=[]
     cart_items = CartItem.objects.filter(user=request.user)
@@ -74,4 +87,35 @@ def checkout(request):
         "product_price": product_price,
         "lp":lp
     })
+ 
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+@csrf_exempt
+@login_required
+def create_checkout_session(request):
+    if request.method == 'POST':
+        # Example: get cart total from session or database
+        cart_items = CartItem.objects.filter(user=request.user)
+        amount = sum(item.product.price * item.quantity for item in cart_items)
+        amount = int(amount * 100)
+        
+
+        session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            line_items=[{
+                'price_data': {
+                    'currency': 'usd',
+                    'product_data': {
+                        'name': 'Your Product Name',
+                        'description': 'Your Product Description',
+                    },
+                    'unit_amount': amount,
+                },
+                'quantity': 1,
+            }],
+            mode='payment',
+            success_url='http://localhost:8000/cart/success/',
+            cancel_url='http://localhost:8000/cart/cancel/',
+        )
+        return JsonResponse({'id': session.id})
  

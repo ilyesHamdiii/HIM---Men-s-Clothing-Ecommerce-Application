@@ -1,0 +1,392 @@
+[
+  {
+    "model": "store.category",
+    "pk": 1,
+    "fields": {
+      "name": "Accessories",
+      "slug": "accessories",
+      "description": "Premium accessories for every occasion."
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 2,
+    "fields": {
+      "name": "Clothing",
+      "slug": "clothing",
+      "description": "High-end clothing for men and women."
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 3,
+    "fields": {
+      "name": "Shoes",
+      "slug": "shoes",
+      "description": "Designer shoes for all styles."
+    }
+  },
+
+  {
+    "model": "store.product",
+    "pk": 1,
+    "fields": {
+      "name": "Orea Classic Leather Belt",
+      "category": 1,
+      "material": "Genuine Leather",
+      "description": "The Orea Classic Leather Belt is a timeless accessory with a polished silver buckle, perfect for both formal and casual wear.",
+      "price": "49.99",
+      "image_url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 2,
+    "fields": {
+      "name": "Orea Silk Scarf",
+      "category": 1,
+      "material": "100% Silk",
+      "description": "Luxurious Orea silk scarf with a modern print, ideal for adding a touch of elegance to any outfit.",
+      "price": "79.99",
+      "image_url": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 3,
+    "fields": {
+      "name": "Orea Aviator Sunglasses",
+      "category": 1,
+      "material": "Metal & Glass",
+      "description": "Iconic Orea aviator sunglasses with UV protection and a stylish gold frame.",
+      "price": "129.99",
+      "image_url": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 4,
+    "fields": {
+      "name": "Orea Wool Beanie",
+      "category": 1,
+      "material": "Merino Wool",
+      "description": "Soft and warm Orea beanie made from premium merino wool, available in multiple colors.",
+      "price": "39.99",
+      "image_url": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 5,
+    "fields": {
+      "name": "Orea Minimalist Watch",
+      "category": 1,
+      "material": "Stainless Steel",
+      "description": "Sleek Orea minimalist watch with a black leather strap and silver case.",
+      "price": "199.99",
+      "image_url": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 6,
+    "fields": {
+      "name": "Orea Cashmere Gloves",
+      "category": 1,
+      "material": "Cashmere",
+      "description": "Elegant Orea cashmere gloves for ultimate comfort and warmth during winter.",
+      "price": "59.99",
+      "image_url": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 7,
+    "fields": {
+      "name": "Orea Leather Wallet",
+      "category": 1,
+      "material": "Full-Grain Leather",
+      "description": "Compact and durable Orea wallet with multiple card slots and a coin pocket.",
+      "price": "69.99",
+      "image_url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 8,
+    "fields": {
+      "name": "Orea Pearl Earrings",
+      "category": 1,
+      "material": "Sterling Silver & Pearl",
+      "description": "Classic Orea pearl earrings set in sterling silver, perfect for special occasions.",
+      "price": "89.99",
+      "image_url": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 9,
+    "fields": {
+      "name": "Orea Canvas Tote Bag",
+      "category": 1,
+      "material": "Cotton Canvas",
+      "description": "Spacious and eco-friendly Orea tote bag for everyday use.",
+      "price": "34.99",
+      "image_url": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 10,
+    "fields": {
+      "name": "Orea Gold Cufflinks",
+      "category": 1,
+      "material": "18K Gold",
+      "description": "Elegant Orea gold cufflinks to complement your formal attire.",
+      "price": "149.99",
+      "image_url": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+
+  {
+    "model": "store.product",
+    "pk": 11,
+    "fields": {
+      "name": "Orea Slim Fit Blazer",
+      "category": 2,
+      "material": "Wool Blend",
+      "description": "Orea slim fit blazer in a modern cut, perfect for business or evening wear.",
+      "price": "249.99",
+      "image_url": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 12,
+    "fields": {
+      "name": "Orea Linen Shirt",
+      "category": 2,
+      "material": "100% Linen",
+      "description": "Breathable Orea linen shirt with a relaxed fit, ideal for summer days.",
+      "price": "59.99",
+      "image_url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 13,
+    "fields": {
+      "name": "Orea High-Waist Trousers",
+      "category": 2,
+      "material": "Cotton Blend",
+      "description": "Chic Orea high-waist trousers with a tailored silhouette.",
+      "price": "89.99",
+      "image_url": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 14,
+    "fields": {
+      "name": "Orea Oversized Coat",
+      "category": 2,
+      "material": "Wool",
+      "description": "Statement Orea oversized coat with a double-breasted front and large lapels.",
+      "price": "299.99",
+      "image_url": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 15,
+    "fields": {
+      "name": "Orea Pleated Midi Skirt",
+      "category": 2,
+      "material": "Polyester",
+      "description": "Elegant Orea pleated midi skirt in a flowing silhouette.",
+      "price": "69.99",
+      "image_url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 16,
+    "fields": {
+      "name": "Orea Ribbed Knit Dress",
+      "category": 2,
+      "material": "Viscose Blend",
+      "description": "Fitted Orea ribbed knit dress with a mock neck and long sleeves.",
+      "price": "79.99",
+      "image_url": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 17,
+    "fields": {
+      "name": "Orea Cropped Denim Jacket",
+      "category": 2,
+      "material": "Denim",
+      "description": "Trendy Orea cropped denim jacket with distressed details.",
+      "price": "89.99",
+      "image_url": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 18,
+    "fields": {
+      "name": "Orea Satin Camisole",
+      "category": 2,
+      "material": "Satin",
+      "description": "Delicate Orea satin camisole with adjustable straps.",
+      "price": "39.99",
+      "image_url": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 19,
+    "fields": {
+      "name": "Orea Wide-Leg Pants",
+      "category": 2,
+      "material": "Linen Blend",
+      "description": "Relaxed Orea wide-leg pants with a high-rise waist.",
+      "price": "79.99",
+      "image_url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 20,
+    "fields": {
+      "name": "Orea Double-Breasted Blazer",
+      "category": 2,
+      "material": "Wool Blend",
+      "description": "Sharp Orea double-breasted blazer with gold-tone buttons.",
+      "price": "259.99",
+      "image_url": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+
+  {
+    "model": "store.product",
+    "pk": 21,
+    "fields": {
+      "name": "Orea Chunky Sneakers",
+      "category": 3,
+      "material": "Mesh & Rubber",
+      "description": "Modern Orea chunky sneakers with a thick sole and color-block design.",
+      "price": "119.99",
+      "image_url": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 22,
+    "fields": {
+      "name": "Orea Leather Chelsea Boots",
+      "category": 3,
+      "material": "Leather",
+      "description": "Classic Orea Chelsea boots in smooth leather with elastic side panels.",
+      "price": "159.99",
+      "image_url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 23,
+    "fields": {
+      "name": "Orea Strappy Sandals",
+      "category": 3,
+      "material": "Faux Leather",
+      "description": "Elegant Orea strappy sandals with a block heel, perfect for summer.",
+      "price": "69.99",
+      "image_url": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 24,
+    "fields": {
+      "name": "Orea Suede Loafers",
+      "category": 3,
+      "material": "Suede",
+      "description": "Refined Orea suede loafers with a classic penny slot.",
+      "price": "99.99",
+      "image_url": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 25,
+    "fields": {
+      "name": "Orea Platform Ankle Boots",
+      "category": 3,
+      "material": "Faux Leather",
+      "description": "Trendy Orea platform ankle boots with a chunky heel.",
+      "price": "139.99",
+      "image_url": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 26,
+    "fields": {
+      "name": "Orea Classic Derby Shoes",
+      "category": 3,
+      "material": "Leather",
+      "description": "Timeless Orea Derby shoes with a smooth finish and lace-up front.",
+      "price": "129.99",
+      "image_url": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 27,
+    "fields": {
+      "name": "Orea Espadrille Flats",
+      "category": 3,
+      "material": "Canvas & Jute",
+      "description": "Comfortable Orea espadrille flats with a woven jute sole.",
+      "price": "59.99",
+      "image_url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 28,
+    "fields": {
+      "name": "Orea Leather Mules",
+      "category": 3,
+      "material": "Leather",
+      "description": "Chic Orea leather mules with a pointed toe and low heel.",
+      "price": "89.99",
+      "image_url": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 29,
+    "fields": {
+      "name": "Orea High-Top Sneakers",
+      "category": 3,
+      "material": "Canvas",
+      "description": "Casual Orea high-top sneakers with a rubber sole and lace-up front.",
+      "price": "79.99",
+      "image_url": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 30,
+    "fields": {
+      "name": "Orea Patent Leather Pumps",
+      "category": 3,
+      "material": "Patent Leather",
+      "description": "Elegant Orea patent leather pumps with a stiletto heel.",
+      "price": "109.99",
+      "image_url": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+    }
+  }
+]

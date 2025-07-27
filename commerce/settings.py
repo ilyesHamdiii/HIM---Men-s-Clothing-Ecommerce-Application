@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'store',
     'cart',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -83,7 +84,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+LOGIN_URL = '/login/'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -128,3 +129,6 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STRIPE_PUBLIC_KEY = 'pk_test_51RpTk330CxW6iHSOI48u29pttPBAKJneLbfdFEmfc0f7TFGkBb4gyyJhIYWqwOj6BPd3Y1luvbDkKPu4B9QL7ImX00ol4uJ99B'
+STRIPE_SECRET_KEY = 'sk_test_51RpTk330CxW6iHSOUtC1QdrwHBMFqnstd7eB6xQH32BfamFyDKPWhb4RMusu8Tyn8GAeDozHInjZIKzhOYU9Nnhj00MH8HZGOb'
