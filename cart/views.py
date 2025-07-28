@@ -29,6 +29,7 @@ def view_cart(request):
     sub_total=(total_price/100)*120
     return render(request,"cart/shopping-cart.html",{"cart_items":cart_items,"total_price":total_price,"sub_total":sub_total,"product_price":product_price})
 
+@csrf_exempt
 @login_required
 def add_to_cart(request,product_id):
     product=Product.objects.get(id=product_id)
@@ -36,13 +37,15 @@ def add_to_cart(request,product_id):
 
     cart_item.quantity+=1
     cart_item.save()
-    return redirect("store:store_cat2")
+    return redirect("cart:view_cart")
+@csrf_exempt
 @login_required
 def remove_from_cart(request,product_id):
     cart_item=CartItem.objects.filter(id=product_id).first()
     if cart_item:
         cart_item.delete()
     return redirect("cart:view_cart")
+@csrf_exempt
 @login_required
 def update_cart(request):
     if request.method == "POST":
@@ -114,8 +117,28 @@ def create_checkout_session(request):
                 'quantity': 1,
             }],
             mode='payment',
-            success_url='http://localhost:8000/cart/success/',
-            cancel_url='http://localhost:8000/cart/cancel/',
+            success_url='https://13762a7a92ee.ngrok-free.app/cart/checkout_success/',
+            cancel_url='https://13762a7a92ee.ngrok-free.app/cart/checkout_cancel/',
         )
-        return JsonResponse({'id': session.id})
- 
+        return redirect(session.url, code=303)
+@login_required
+def checkout_success(request):
+    print("COOKIES:", request.COOKIES)
+    print("SESSION KEY:", request.session.session_key)
+    print("User:", request.user, "Authenticated:", request.user.is_authenticated)
+    CartItem.objects.filter(user=request.user).delete()
+    return render(request, 'cart/success.html', {
+        "cart_items": [],
+        "total_price": 0,
+        "sub_total": 0,
+        "product_price": []
+    })
+
+@login_required
+def checkout_cancel(request):
+    return render(request, 'cart/cancel.html', {
+        "cart_items": [],
+        "total_price": 0,
+        "sub_total": 0,
+        "product_price": []
+    })

@@ -1,6 +1,7 @@
 from .models import CartItem
 
 def cart_total(request):
+    print("User:", request.user, "Authenticated:", request.user.is_authenticated)
     if request.user.is_authenticated:
         cart_items = CartItem.objects.filter(user=request.user)
         total_price = sum(item.product.price * item.quantity for item in cart_items)

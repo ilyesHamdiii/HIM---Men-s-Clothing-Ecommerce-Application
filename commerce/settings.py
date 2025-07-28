@@ -21,11 +21,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #secret key here
+STRIPE_PUBLIC_KEY = 'pk_test_51RpTk330CxW6iHSOI48u29pttPBAKJneLbfdFEmfc0f7TFGkBb4gyyJhIYWqwOj6BPd3Y1luvbDkKPu4B9QL7ImX00ol4uJ99B'
+STRIPE_SECRET_KEY = 'sk_test_51RpTk330CxW6iHSOUtC1QdrwHBMFqnstd7eB6xQH32BfamFyDKPWhb4RMusu8Tyn8GAeDozHInjZIKzhOYU9Nnhj00MH8HZGOb'
+
+SECRET_KEY = 'django-insecure-r1jnm024tneh^8$8b(%ywl_hj^(k)y3w1ce#c^u&&q+*ewj)v!'
+DOMAIN = "http://localhost:8000"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -85,6 +90,8 @@ DATABASES = {
     }
 }
 LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -131,3 +138,6 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #test
+# Stripe/ngrok session settings for cross-domain redirect
+SESSION_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SECURE = True
