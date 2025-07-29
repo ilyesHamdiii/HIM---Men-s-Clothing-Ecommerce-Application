@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "name": "MR P. Delave Linen Shirt",
+    "category": "Mr P.",
+    "material": "Linen",
+    "description": "Washed linen shirt designed by MR PORTER",
+    "price": 185.0,
+    "image_url": "https://www.mrporter.com/variants/images/1647597356993796/in/w1500_q60.jpg"
+  },
+  {
+    "id": 2,
+    "name": "MR P. Arthur Wide‑Leg Linen Trousers",
+    "category": "Mr P.",
+    "material": "Linen",
+    "description": "Wide‑leg linen trousers, consciously crafted",
+    "price": 220.0,
+    "image_url": "https://www.mrporter.com/variants/images/1647597356993793/in/w1500_q60.jpg"
+  },
+  {
+    "id": 3,
+    "name": "MR P. Prince of Wales Checked Linen Suit Jacket",
+    "category": "Mr P.",
+    "material": "Linen",
+    "description": "Checked linen suit jacket, part of suit",
+    "price": 535.0,
+    "image_url": "https://www.mrporter.com/variants/images/1647597355194679/in/w1500_q60.jpg"
+  },
+  {
+    "id": 4,
+    "name": "MR P. Textured‑Cotton Polo Shirt",
+    "category": "Mr P.",
+    "material": "Cotton",
+    "description": "Textured‑cotton polo shirt",
+    "price": 235.0,
+    "image_url": "https://www.mrporter.com/variants/images/46376663162880340/in/w1500_q60.jpg"
+  },
+  {
+    "id": 5,
+    "name": "MR P. Phillip Straight‑Leg Prince of Wales Checked Linen Suit Trousers",
+    "category": "Mr P.",
+    "material": "Linen",
+    "description": "Straight‑leg checked linen suit trousers",
+    "price": 285.0,
+    "image_url": "https://www.mrporter.com/variants/images/1647597355194677/in/w1500_q60.jpg"
+  },
+  {
+    "id": 6,
+    "name": "MR P. Straight‑Leg Linen‑Chambray Drawstring Shorts",
+    "category": "Mr P.",
+    "material": "Linen‑Chambray",
+    "description": "Drawstring shorts in linen‑chambray",
+    "price": 160.0,
+    "image_url": "https://www.mrporter.com/variants/images/46376663162842511/in/w1500_q60.jpg"
+  },
+  {
+    "id": 7,
+    "name": "MR P. Recycled Woven Shirt Jacket",
+    "category": "Mr P.",
+    "material": "Recycled cotton",
+    "description": "Shirt‑jacket made from recycled woven fabric",
+    "price": 410.0,
+    "image_url": "https://www.mrporter.com/variants/images/1647597356474492/in/w1500_q60.jpg"
+  },
+  {
+    "id": 8,
+    "name": "MR P.  ",
+    "category": "Mr P.",
+    "material": "Linen",
+    "description": "Casual linen T‑shirt",
+    "price": 115.0,
+    "image_url": "https://www.mrporter.com/variants/images/1647597360291188/in/w1500_q60.jpg"
+  },
+  {
+    "id": 9,
+    "name": "MR P. Straight‑Leg Linen and Cotton‑Blend Drawstring Shorts",
+    "category": "Mr P.",
+    "material": "Linen‑Cotton blend",
+    "description": "Drawstring shorts in linen‑cotton blend",
+    "price": 160.0,
+    "image_url": "https://www.mrporter.com/variants/images/1647597356993796/in/w1500_q60.jpg"
+  },
+  {
+    "id": 10,
+    "name": "MR P. Double‑Breasted Linen Tuxedo Jacket",
+    "category": "Mr P.",
+    "material": "Linen",
+    "description": "Double‑breasted linen tuxedo jacket, part of suit",
+    "price": 495.0,
+    "image_url": "https://www.mrporter.com/variants/images/1647597356631682/in/w1500_q60.jpg"
+  },
+  {
+    "id": 11,
+    "name": "MR P. Phillip Slim‑Fit Straight‑Leg Linen Suit Trousers",
+    "category": "Mr P.",
+    "material": "Linen",
+    "description": "Slim‑fit linen suit trousers",
+    "price": 245.0,
+    "image_url": "https://www.mrporter.com/variants/images/1647597356631664/in/w1500_q60.jpg"
+  },
+  {
+    "id": 12,
+    "name": "MR P. Slim‑Fit Virgin Wool, Silk and Linen‑Blend Suit Jacket",
+    "category": "Mr P.",
+    "material": "Wool‑Silk‑Linen blend",
+    "description": "Slim‑fit suit jacket in wool, silk and linen blend",
+    "price": 620.0,
+    "image_url": "https://www.mrporter.com/variants/images/1647597358253339/in/w1500_q60.jpg"
+  },
+  {
+    "id": 13,
+    "name": "MR P. Mike Straight‑Leg Pleated Wool, Silk and Linen‑Blend Suit Trousers",
+    "category": "Mr P.",
+    "material": "Wool‑Silk‑Linen blend",
+    "description": "Pleated suit trousers in wool, silk, linen blend",
+    "price": 310.0,
+    "image_url": "https://www.mrporter.com/variants/images/1647597358252806/in/w1500_q60.jpg"
+  },
+  {
+    "id": 14,
+    "name": "MR P. Straight‑Leg Pleated Organic Cotton‑Poplin Shorts",
+    "category": "Mr P.",
+    "material": "Organic cotton poplin",
+    "description": "Pleated shorts in organic cotton‑poplin",
+    "price": 145.0,
+    "image_url": "https://www.mrporter.com/variants/images/1647597359870313/in/w1500_q60.jpg"
+  },
+  {
+    "id": 15,
+    "name": "MR P.  ",
+    "category": "Mr P.",
+    "material": "Linen‑Cotton blend",
+    "description": "Bomber jacket in linen and cotton blend",
+    "price": 370.0,
+    "image_url": "https://www.mrporter.com/variants/images/1647597360522979/in/w1500_q60.jpg"
+  },
+  {
+    "id": 16,
+    "name": "MR P.  ",
+    "category": "Mr P.",
+    "material": "Cotton‑Jersey",
+    "description": "Striped ribbed cotton‑jersey T‑shirt",
+    "price": 95.0,
+    "image_url": "https://www.mrporter.com/variants/images/46376663162888442/in/w1500_q60.jpg"
+  },
+  {
+    "id": 17,
+    "name": "MR P.  ",
+    "category": "Mr P.",
+    "material": "Linen‑Cotton blend",
+    "description": "Edward straight‑leg blend trousers",
+    "price": 220.0,
+    "image_url": "https://www.mrporter.com/variants/images/1647597356993795/in/w1500_q60.jpg"
+  },
+  {
+    "id": 18,
+    "name": "MR P. Linen and Organic Cotton‑Blend T‑Shirt",
+    "category": "Mr P.",
+    "material": "Linen‑Organic Cotton blend",
+    "description": "T‑shirt in linen and organic cotton blend",
+    "price": 135.0,
+    "image_url": "https://www.mrporter.com/variants/images/1647597358923057/in/w1500_q60.jpg"
+  },
+  {
+    "id": 19,
+    "name": "MR P. Suede Jacket",
+    "category": "Mr P.",
+    "material": "Suede",
+    "description": "Consciously crafted suede jacket",
+    "price": 870.0,
+    "image_url": "https://www.mrporter.com/variants/images/46376663162867040/in/w1500_q60.jpg"
+  },
+  {
+    "id": 20,
+    "name": "MR P. James Straight‑Leg Slub Linen Drawstring Trousers",
+    "category": "Mr P.",
+    "material": "Slub Linen",
+    "description": "James drawstring trousers in slub linen",
+    "price": 245.0,
+    "image_url": "https://www.mrporter.com/variants/images/1647597356631667/in/w1500_q60.jpg"
+  }
+]

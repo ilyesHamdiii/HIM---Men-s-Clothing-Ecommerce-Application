@@ -2,14 +2,26 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login as auth_login, logout
+from django.contrib.auth import authenticate, login , logout
 from django.contrib.auth.decorators import login_required
 from . import models 
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm 
 
 # Create your views here.
 
 app_name='user'
 def login_view(request):
+    if request.method == "POST": 
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid(): 
+            login(request, form.get_user())
+            if 'next' in request.POST:
+                return redirect(request.POST.get('next'))
+            else:
+                return redirect("store:store_cat2")
+    else: 
+        form = AuthenticationForm()
+    return render(request, "user/login.html", { "form": form })
     if request.method == "POST":
         name = request.POST.get('uname')
         password = request.POST.get('upassword')
@@ -23,6 +35,14 @@ def login_view(request):
     return render(request, "user/login.html")
 
 def signup_view(request):
+    if request.method == "POST": 
+        form = UserCreationForm(request.POST) 
+        if form.is_valid(): 
+            login(request, form.save())
+            return redirect("/login")
+    else:
+        form = UserCreationForm()
+    return render(request, "user/signup.html", { "form": form })
     error = None
     if request.method == 'POST':
         name = request.POST.get('username')
@@ -45,4 +65,4 @@ def signup_view(request):
 @login_required
 def signout_view(request):
     logout(request)
-    return redirect("/login_view") 
+    return redirect("store:store_cat2") 

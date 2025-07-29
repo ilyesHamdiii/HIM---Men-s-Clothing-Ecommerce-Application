@@ -1,3 +1,48 @@
-{% extends "store/base.html" %} {%block content%}
-<h1>success</h1>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center px-4">
+    <div
+      class="flex flex-col items-center justify-center min-h-[70vh] px-4 py-10"
+    >
+      <div
+        class="bg-white p-8 rounded-2xl shadow-md text-center max-w-md w-full"
+      >
+        <div class="flex justify-center mb-6">
+          <div
+            class="bg-black rounded-full w-20 h-20 flex items-center justify-center shadow-lg"
+          >
+            <svg
+              class="w-10 h-10 text-white"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </div>
+        </div>
+        <h1 class="text-2xl font-bold text-gray-800 mb-4">Thank You!</h1>
+        <p class="text-gray-600 mb-6">
+          Your action was successful. You’ll hear from us soon.
+        </p>
+        <a
+          href="{% url 'store:home' %}"
+          class="inline-block px-6 py-3 bg-black text-white font-semibold rounded-lg hover:bg-gray-900 transition duration-200"
+        >
+          Back to Main Page
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.sessions.models import Session
 from store.models import Product
-from .models import CartItem
+from .models import CartItem,WishItem
 from django import template
 import stripe
 from django.conf import settings
@@ -32,12 +32,25 @@ def view_cart(request):
 @csrf_exempt
 @login_required
 def add_to_cart(request,product_id):
+     
+    print("User:", request.user)
     product=Product.objects.get(id=product_id)
     cart_item,created=CartItem.objects.get_or_create(product=product,user=request.user)
 
     cart_item.quantity+=1
     cart_item.save()
     return redirect("cart:view_cart")
+
+@csrf_exempt
+@login_required
+def add_to_wish(request,product_id):
+     
+    print("User:", request.user)
+    product=Product.objects.get(id=product_id)
+    wish_item,created=WishItem.objects.get_or_create(product=product,user=request.user)
+
+    wish_item.save()
+    return redirect("cart:wishlist")
 @csrf_exempt
 @login_required
 def remove_from_cart(request,product_id):
@@ -45,6 +58,13 @@ def remove_from_cart(request,product_id):
     if cart_item:
         cart_item.delete()
     return redirect("cart:view_cart")
+@csrf_exempt
+@login_required
+def remove_from_wish(request,product_id):
+    wish_item=WishItem.objects.filter(id=product_id).first()
+    if wish_item:
+        wish_item.delete()
+    return redirect("cart:wishlist")
 @csrf_exempt
 @login_required
 def update_cart(request):
@@ -101,24 +121,26 @@ def create_checkout_session(request):
         cart_items = CartItem.objects.filter(user=request.user)
         amount = sum(item.product.price * item.quantity for item in cart_items)
         amount = int(amount * 100)
-        
-
-        session = stripe.checkout.Session.create(
-            payment_method_types=['card'],
-            line_items=[{
+        line_items=[]
+        for item in cart_items:
+            line_items.append({
                 'price_data': {
                     'currency': 'usd',
                     'product_data': {
-                        'name': 'Your Product Name',
-                        'description': 'Your Product Description',
+                        'name': item.product.name,
+                        'description': item.product.description or '',
                     },
-                    'unit_amount': amount,
+                    'unit_amount': int(item.product.price * 100),  # price in cents
                 },
-                'quantity': 1,
-            }],
+                'quantity': item.quantity,
+            })
+
+        session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            line_items=line_items,
             mode='payment',
-            success_url='https://13762a7a92ee.ngrok-free.app/cart/checkout_success/',
-            cancel_url='https://13762a7a92ee.ngrok-free.app/cart/checkout_cancel/',
+            success_url='http://127.0.0.1:8000/checkout_success/',
+            cancel_url='http://127.0.0.1:8000/checkout_cancel/',
         )
         return redirect(session.url, code=303)
 @login_required
@@ -136,9 +158,22 @@ def checkout_success(request):
 
 @login_required
 def checkout_cancel(request):
-    return render(request, 'cart/cancel.html', {
+    return render(request, 'store/home  .html', {
         "cart_items": [],
         "total_price": 0,
         "sub_total": 0,
         "product_price": []
     })
+def wishlist(request):
+    cart_items=WishItem.objects.filter(user=request.user)
+    quantity=request.POST.get('quantity')
+    print(request.POST)
+    print(quantity)
+
+    total_price=sum(item.product.price * item.quantity for item in cart_items)
+    product_price=[str(item.product.price * item.quantity) for item in cart_items]
+    print(product_price)
+    #n=len(product_price)
+    
+    sub_total=(total_price/100)*120
+    return render(request,"cart/wish.html",{"cart_items":cart_items,"total_price":total_price,"sub_total":sub_total,"product_price":product_price})

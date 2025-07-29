@@ -89,7 +89,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-LOGIN_URL = '/login/'
+LOGIN_URL = 'user:login_view'
 LOGIN_REDIRECT_URL = '/'
 
 

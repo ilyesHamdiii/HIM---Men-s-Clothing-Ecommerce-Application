@@ -18,7 +18,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         try:
-            with open('store/fixtures/clothing.json', 'r', encoding='utf-8-sig') as f:
+            with open('store/fixtures/test.json', 'r', encoding='utf-8-sig') as f:
                 data = json.load(f)
         except FileNotFoundError:
             self.stderr.write(self.style.ERROR("❌ 'fixture.json' not found."))
@@ -28,7 +28,6 @@ class Command(BaseCommand):
             category_name = item.get('category', 'Uncategorized')
             slug = slugify(category_name)
 
-            # Crée ou récupère la catégorie
             category_obj, _ = Category.objects.get_or_create(
                 name=category_name,
                 defaults={'slug': generate_unique_slug(Category, slug)}
