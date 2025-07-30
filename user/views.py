@@ -22,17 +22,7 @@ def login_view(request):
     else: 
         form = AuthenticationForm()
     return render(request, "user/login.html", { "form": form })
-    if request.method == "POST":
-        name = request.POST.get('uname')
-        password = request.POST.get('upassword')
-        userr = authenticate(request, username=name, password=password)
-        if userr is not None:
-            auth_login(request, userr) 
-            return redirect('/login')
-        else:
-            return redirect('store:store_cat2')
 
-    return render(request, "user/login.html")
 
 def signup_view(request):
     if request.method == "POST": 
