@@ -14,7 +14,7 @@ def home(request):
     product7 = Product.objects.get(id=7)
     product8 = Product.objects.get(id=8)
     context = {
-        'product1': product10,
+        'product10': product10,
         'product2': product2,
         'product3': product3,
         'product4': product4,
@@ -22,6 +22,7 @@ def home(request):
         'product6': product6,
         'product7': product7,
         'product8': product8,
+        
 
     }
     return render(request,"store/home.html",context)
@@ -174,3 +175,5 @@ def about(request):
     return render(request,"store/about.html")
 def blog(request):
     return render(request,"store/blog.html")
+def contact(request):
+    return render(request,"store/contact.html")

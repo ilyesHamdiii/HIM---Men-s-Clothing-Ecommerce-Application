@@ -91,6 +91,10 @@ DATABASES = {
 }
 LOGIN_URL = 'user:login_view'
 LOGIN_REDIRECT_URL = '/'
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SAMESITE = 'Lax'
+
 
 
 # Password validation
@@ -139,5 +143,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #test
 # Stripe/ngrok session settings for cross-domain redirect
-SESSION_COOKIE_SAMESITE = 'None'
-SESSION_COOKIE_SECURE = True

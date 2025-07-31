@@ -110,7 +110,7 @@
                             <li class="active"><a href="/">Home</a></li>
                             <li><a href="/shop">Shop</a></li>
                             <li><a href="{% url 'store:blog'%}">Blog</a></li>
-                            <li><a href="./contact.html">Contacts</a></li>
+                            <li><a href="{% url 'store:contact'%}">Contacts</a></li>
                             <li><a href="{% url 'store:about'%}">About Us </a></li>
 
 
@@ -120,7 +120,7 @@
                 <div class="col-lg-3 col-md-3">
                     <div class="header__nav__option">
                         <a href="#" class="search-switch"><img src="{% static "img/icon/search.png" %}   " alt=""></a>
-                        <a href="#"><img src="{% static "img/icon/heart.png" %}   " alt=""></a>
+                        <a href="{% url 'cart:wishlist'%}"><img src="{% static "img/icon/heart.png" %}   " alt=""></a>
                         <a href="{% url 'cart:view_cart'%}"><img src="{% static "img/icon/cart.png" %}   " alt=""> <span><strong>{{cart_total_count}}</strong></span></a>
                         <div class="price">${{cart_total_price}}</div>
                     </div>

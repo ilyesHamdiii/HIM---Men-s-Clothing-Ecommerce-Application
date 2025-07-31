@@ -25,8 +25,12 @@
             <div class="text-center mb-4">
               <h3 class="fw-bold">Login</h3>
             </div>
-            <form method="post" action="">
-              {% csrf_token %}
+            <form method="POST" action="">
+              {% if messages %} {% for message in messages %}
+              <p style="color: red">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ message }}
+              </p>
+              {% endfor %} {% endif %} {% csrf_token %}
               <div class="form-group mb-4">
                 <label for="username">Username</label>
                 <input

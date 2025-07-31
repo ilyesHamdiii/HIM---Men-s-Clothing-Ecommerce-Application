@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login , logout
 from django.contrib.auth.decorators import login_required
 from . import models 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm 
+from django.contrib import messages
 
 # Create your views here.
 
@@ -14,13 +15,15 @@ def login_view(request):
     if request.method == "POST": 
         form = AuthenticationForm(data=request.POST)
         if form.is_valid(): 
+            print("form is valid ")
             login(request, form.get_user())
-            if 'next' in request.POST:
-                return redirect(request.POST.get('next'))
-            else:
-                return redirect("store:store_cat2")
+            return redirect("store:store_cat2")
+        else:
+             messages.error(request, "Invalid username or password.")
     else: 
+        print("form is not valid ")
         form = AuthenticationForm()
+    print("no request at all ")
     return render(request, "user/login.html", { "form": form })
 
 

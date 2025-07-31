@@ -41,7 +41,7 @@
                                 <h2>Fall - Winter Collections 2030</h2>
                                 <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
                                 commitment to exceptional quality.</p>
-                                <a href="#" class="primary-btn">Shop now <span class="arrow_right"></span></a>
+                                <a href="{% url 'store:shop'%}" class="primary-btn">Shop now <span class="arrow_right"></span></a>
                                 <div class="hero__social">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-twitter"></i></a>
@@ -62,7 +62,7 @@
                                 <h2>Fall - Winter Collections 2030</h2>
                                 <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
                                 commitment to exceptional quality.</p>
-                                <a href="#" class="primary-btn">Shop now <span class="arrow_right"></span></a>
+                                <a href="{% url 'store:shop'%}" class="primary-btn">Shop now <span class="arrow_right"></span></a>
                                 <div class="hero__social">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-twitter"></i></a>
@@ -88,8 +88,8 @@
                             <img src="{% static "img/banner/banner-1.jpg" %}   " alt="">
                         </div>
                         <div class="banner__item__text">
-                            <h2>Clothing Collections 2030</h2>
-                            <a href="#">Shop now</a>
+                            <h2>Clothing Collections 2026</h2>
+                            <a href="{% url 'store:shop'%}">Shop now</a>
                         </div>
                     </div>
                 </div>
@@ -99,8 +99,8 @@
                             <img src= " {% static "img/banner/banner-2.jpg" %}  " alt="">
                         </div>
                         <div class="banner__item__text">
-                            <h2>Accessories</h2>
-                            <a href="#">Shop now</a>
+                            <h2>jackets</h2>
+                            <a href="{% url 'store:store_cat2'     %}">Shop now</a>
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
                         </div>
                         <div class="banner__item__text">
                             <h2>Shoes Spring 2030</h2>
-                            <a href="#">Shop now</a>
+                            <a href="{% url 'store:store_cat2'  %}">Shop now</a>
                         </div>
                     </div>
                 </div>
@@ -136,17 +136,17 @@
 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{% static "img/product/product-1.jpg" %}   ">
+                        <div class="product__item__pic set-bg" data-setbg="{{product4.image_url}}">
                             <span class="label">New</span>
                             <ul class="product__hover">
                                 <li><a href="#"><img src="{% static "img/icon/heart.png" %}  "  alt=""></a></li>
                                 <li><a href="#"><img src="{% static "img/icon/compare.png" %}" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="{% static "img/icon/search.png" %}" alt=""></a></li>
+                                <li><a href="{% url 'store:product_detail' 4 %}"><img src="{% static "img/icon/search.png" %}" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
                             <h6>{{product4.name}}</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <a href="{% url 'cart:add_to_cart' 4 %}" class="add-cart">+ Add To Cart</a>
                             <div class="rating">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
@@ -171,16 +171,16 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{% static "img/product/product-2.jpg" %}">
+                        <div class="product__item__pic set-bg" data-setbg="{{product5.image_url}}">
                             <ul class="product__hover">
                                 <li><a href="#"><img src="{% static "img/icon/heart.png" %}   "  alt=""></a></li>
                                 <li><a href="#"><img src="{% static "img/icon/compare.png" %}" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="{% static "img/icon/search.png" %}" alt=""></a></li>
+                                <li><a href="{% url 'store:product_detail' 5 %}"><img src="{% static "img/icon/search.png" %}" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
                             <h6>{{product5.name}}</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <a href="{% url 'cart:add_to_cart' 5 %}" class="add-cart">+ Add To Cart</a>
                             <div class="rating">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
@@ -205,17 +205,17 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div class="product__item sale">
-                        <div class="product__item__pic set-bg" data-setbg="{% static "img/product/product-3.jpg" %}">
+                        <div class="product__item__pic set-bg" data-setbg="{{product8.image_url}}">
                             <span class="label">Sale</span>
                             <ul class="product__hover">
                                 <li><a href="#"><img src="{% static "img/icon/heart.png" %}   "  alt=""></a></li>
                                 <li><a href="#"><img src="{% static "img/icon/compare.png" %}" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="{% static "img/icon/search.png" %}" alt=""></a></li>
+                                <li><a href="{% url 'store:product_detail' 8 %}"><img src="{% static "img/icon/search.png" %}" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6>{{product6.name}}</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <h6>{{product8.name}}</h6>
+                            <a href="{% url 'cart:add_to_cart' 8 %}" class="add-cart">+ Add To Cart</a>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -223,7 +223,7 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star-o"></i>
                             </div>
-                            <h5>{{product5.price}}</h5>
+                            <h5>{{product8.price}}</h5>
                             <div class="product__color__select">
                                 <label for="pc-7">
                                     <input type="radio" id="pc-7">
@@ -240,16 +240,16 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{% static "img/product/product-4.jpg" %}">
+                        <div class="product__item__pic set-bg" data-setbg="{{product3.image_url}}">
                             <ul class="product__hover">
                                 <li><a href="#"><img src="{% static "img/icon/heart.png" %}   "  alt=""></a></li>
                                 <li><a href="#"><img src="{% static "img/icon/compare.png" %}" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="{% static "img/icon/search.png" %}" alt=""></a></li>
+                                <li><a href="{% url 'store:product_detail' 3 %}"><img src="{% static "img/icon/search.png" %}" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6>{{product7.name}}</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <h6>{{product3.name}}</h6>
+                            <a href="{% url 'cart:add_to_cart' 3 %}" class="add-cart">+ Add To Cart</a>
                             <div class="rating">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
@@ -257,7 +257,7 @@
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
                             </div>
-                            <h5>{{product7.price}}</h5>
+                            <h5>{{product3.price}}</h5>
                             <div class="product__color__select">
                                 <label for="pc-10">
                                     <input type="radio" id="pc-10">
@@ -274,16 +274,16 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{% static "img/product/product-5.jpg" %}">
+                        <div class="product__item__pic set-bg" data-setbg="{{product7.image_url}}">
                             <ul class="product__hover">
                                 <li><a href="#"><img src="{% static "img/icon/heart.png" %}   "  alt=""></a></li>
                                 <li><a href="#"><img src="{% static "img/icon/compare.png" %}" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="{% static "img/icon/search.png" %}" alt=""></a></li>
+                                <li><a href="{% url 'store:product_detail' 7 %}"><img src="{% static "img/icon/search.png" %}" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6>{{product8.name}}</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <h6>{{product7.name}}</h6>
+                            <a href="{% url 'cart:add_to_cart' 7 %}" class="add-cart">+ Add To Cart</a>
                             <div class="rating">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
@@ -308,17 +308,17 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
                     <div class="product__item sale">
-                        <div class="product__item__pic set-bg" data-setbg="{% static "img/product/product-6.jpg" %}">
+                        <div class="product__item__pic set-bg" data-setbg="{{product6.image_url}}">
                             <span class="label">Sale</span>
                             <ul class="product__hover">
                                 <li><a href="#"><img src="{% static "img/icon/heart.png" %}   "  alt=""></a></li>
                                 <li><a href="#"><img src="{% static "img/icon/compare.png" %}" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="{% static "img/icon/search.png" %}" alt=""></a></li>
+                                <li><a href="{% url 'store:product_detail' 6 %}"><img src="{% static "img/icon/search.png" %}" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6>{{product9.name}}</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <h6>{{product6.name}}</h6>
+                            <a href="{% url 'cart:add_to_cart' 6 %}" class="add-cart">+ Add To Cart</a>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -326,7 +326,7 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star-o"></i>
                             </div>
-                            <h5>{{product9.price}}</h5>
+                            <h5>{{product6.price}}</h5>
                             <div class="product__color__select">
                                 <label for="pc-16">
                                     <input type="radio" id="pc-16">
@@ -343,24 +343,24 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{% static "img/product/product-7.jpg" %}">
+                        <div class="product__item__pic set-bg" data-setbg="{{product10.image_url }}">
                             <ul class="product__hover">
                                 <li><a href="#"><img src="{% static "img/icon/heart.png" %} "  alt=""></a></li>
                                 <li><a href="#"><img src="{% static "img/icon/compare.png" %}" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="{% static "img/icon/search.png" %}" alt=""></a></li>
+                                <li><a href="{% url 'store:product_detail' 10 %}"><img src="{% static "img/icon/search.png" %}" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
                             <h6>{{product10.name}}</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <a href="{% url 'cart:add_to_cart' 10%}" class="add-cart">+ Add To Cart</a>
                             <div class="rating">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>{{product5.price}}</h5>
+                            </div>  
+                            <h5>{{product10.price}}</h5>
                             <div class="product__color__select">
                                 <label for="pc-19">
                                     <input type="radio" id="pc-19">
@@ -377,16 +377,16 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{% static "img/product/product-8.jpg" %}">
+                        <div class="product__item__pic set-bg" data-setbg="{{product2.image_url}}">
                             <ul class="product__hover">
                                 <li><a href="#"><img src="{% static "img/icon/heart.png" %}   " alt=""></a></li>
                                 <li><a href="#"><img src="{% static "img/icon/compare.png" %}" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="{% static "img/icon/search.png" %}" alt=""></a></li>
+                                <li><a href="{% url 'store:product_detail' 2 %}"><img src="{% static "img/icon/search.png" %}" alt=""></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6>Basic Flowing Scarf</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <h6>{{product2.name}}</h6>
+                            <a href="{% url 'cart:add_to_cart' 2 %}" class="add-cart">+ Add To Cart</a>
                             <div class="rating">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
@@ -394,7 +394,7 @@
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
                             </div>
-                            <h5>$26.28</h5>
+                            <h5>{{product2.price}}</h5>
                             <div class="product__color__select">
                                 <label for="pc-22">
                                     <input type="radio" id="pc-22">

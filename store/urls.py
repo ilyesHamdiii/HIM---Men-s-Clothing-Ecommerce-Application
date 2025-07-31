@@ -18,6 +18,7 @@ urlpatterns = [
     path("store_cat2/",views.store_cat2,name="store_cat2"),
     path("about/",views.about,name="about"),
     path("blog/",views.blog,name="blog"),
+    path("contact/",views.contact,name="contact"),
     
     path("shop",views.store,name="shop"),
     path("",include('cart.urls'))
