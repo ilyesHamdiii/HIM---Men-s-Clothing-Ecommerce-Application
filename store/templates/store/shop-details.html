@@ -98,7 +98,7 @@
                             <div class="tab-pane" id="tabs-4" role="tabpanel">
                                 <div class="product__details__pic__item">
                                     <img src="{{products.image_url3}}" alt="">
-                                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="video"><i class="fa fa-play"></i></a>
+                                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="video" target="_blank"><i class="fa fa-play"></i></a>
 
                                 </div>
                             </div>
@@ -124,19 +124,21 @@
                             <h3>${{products.price}} <span>$700.00</span></h3>
                             <p>{{products.description}}</p>
                             <div class="product__details__option">
+                                <form method="GET" action="{% url 'cart:add_to_cart' products.id %}">
+
                                 <div class="product__details__option__size">
                                     <span>Size:</span>
                                     <label for="xxl">xxl
-                                        <input type="radio" id="xxl">
+                                        <input type="radio" id="xxl" name="size" value="xxl">
                                     </label>
                                     <label class="active" for="xl">xl
-                                        <input type="radio" id="xl">
+                                        <input type="radio" id="xl" name="size" value="xl">
                                     </label>
                                     <label for="l">l
-                                        <input type="radio" id="l">
+                                        <input type="radio" id="l" name="size" value="l">
                                     </label>
                                     <label for="sm">s
-                                        <input type="radio" id="sm">
+                                        <input type="radio" id="sm" =name="size" value="s">
                                     </label>
                                 </div>
                                 <div class="product__details__option__color">
@@ -159,15 +161,18 @@
                                 </div>
                             </div>
                             <div class="product__details__cart__option">
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="1">
+                                    {% csrf_token %}
+                                    <div class="quantity">
+                                        <div class="pro-qty">
+                                            <input type="number" name="quantity" value="1" min="1"
+                                                style="appearance: textfield;">
+                                        </div>
                                     </div>
-                                </div>
-                                <a href="#" class="primary-btn">add to cart</a>
+                                    <button type="submit" class="primary-btn">Add to Cart</button>
+                                </form>
                             </div>
                             <div class="product__details__btns__option">
-                                <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
+                                <a href={% url 'cart:add_to_wish' products.id%}><i class="fa fa-heart"></i> add to wishlist</a>
                                 <a href="#"><i class="fa fa-exchange"></i> Add To Compare</a>
                             </div>
                             <div class="product__details__last__option">

@@ -8,10 +8,7 @@ from django.urls import re_path
 app_name='store'
 urlpatterns = [
     path('',views.home,name='home'),
-    path("test/",views.test),
     path("about/",views.about,name="about"),
-    path("men/",views.men,name="men"),
-    path("women/",views.women,name="women"),
     path("product/<int:product_id>/",views.detail,name="product_detail"),
     path("store_cat/<slug:slug>/",views.store_cat,name="store_cat"),
     path("store_brand/<slug:slug>/",views.store_brand,name="store_brand"),

@@ -79,11 +79,12 @@
                                 <tr>
                                     <td class="product__cart__item">
                                         <div class="product__cart__item__pic">
-                                            <img src="{item.product.image_url}" alt="">
+                                            <img src="{{item.product.image_url}}" width=100 hight=150 alt="">   
                                         </div>
                                         <div class="product__cart__item__text">
                                             <h6>{{item.product.name}}</h6>
                                             <h5>${{item.product.price}}</h5>
+                                            <h8><strong>Size:</strong>{{item.product.size}}</h8>
                                         </div>
                                     </td>
                                         <td class="quantity__item">

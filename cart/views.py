@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.sessions.models import Session
-from store.models import Product
+from store.models import Product,Size
 from .models import CartItem,WishItem
 from django import template
 import stripe
@@ -32,12 +32,25 @@ def view_cart(request):
 @csrf_exempt
 @login_required
 def add_to_cart(request,product_id):
-     
+    sizee = request.GET.get("size", "")
+    if sizee:
+        try:
+            size_obj = Size.objects.get(name=sizee)
+        except Size.DoesNotExist:
+            size_obj = None
+    else:
+        size_obj = None
+
+    qt = request.GET.get("quantity", "")
+    print(sizee)
     print("User:", request.user)
     product=Product.objects.get(id=product_id)
-    cart_item,created=CartItem.objects.get_or_create(product=product,user=request.user)
-
-    cart_item.quantity+=1
+    cart_item,created=CartItem.objects.get_or_create(product=product,user=request.user,size=size_obj.name)
+    print(type(qt))
+    if qt:
+        cart_item.quantity+=int(qt)
+    else:
+        cart_item.quantity+=1
     cart_item.save()
     return redirect("cart:view_cart")
 
@@ -129,6 +142,7 @@ def create_checkout_session(request):
                     'product_data': {
                         'name': item.product.name,
                         'description': item.product.description or '',
+                        "images":[item.product.image_url1]
                     },
                     'unit_amount': int(item.product.price * 100),  # price in cents
                 },
