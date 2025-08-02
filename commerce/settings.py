@@ -60,6 +60,8 @@ MIDDLEWARE = [
 
     
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 ROOT_URLCONF = 'commerce.urls'
 
@@ -137,6 +139,14 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'store' / 'static']
 MEDIA_ROOT = BASE_DIR/'media'
 MEDIA_URL = '/media/'
+import os
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # where static files get collected
+
+# Optional: for debugging purposes
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # where your original static files live
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
