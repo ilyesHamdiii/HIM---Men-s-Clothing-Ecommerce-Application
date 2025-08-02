@@ -178,7 +178,7 @@
                                 <div class="checkout__order__products">Product <span>Total</span></div>
                                 <ul class="checkout__total__products">
                                     {% for item in cart_items%}
-                                        <li>{{forloop.counter|stringformat:"02d"}} {{item.product.name}}<span>${{product_price|index:forloop.counter0|default:"N/A" }}</span></li>
+                                        <li><strong>{{forloop.counter|stringformat:"02d"}} </strong>{{item.product.name}}<span>${{product_price|index:forloop.counter0|default:"N/A" }}</span><br><strong>Size:</strong>{{item.size|upper}}</li>
                                     {%endfor%}
                                 </ul>
                                 <ul class="checkout__total__all">

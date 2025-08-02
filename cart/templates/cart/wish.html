@@ -89,8 +89,11 @@
                                             <img src="{item.product.image_url}" alt="">
                                         </div>
                                         <div class="product__cart__item__text">
+                                            <a href="{% url 'store:product_detail' item.product.id %}">
+
                                             <h6>{{item.product.name}}</h6>
                                             <h5>${{item.product.price}}</h5>
+                                            </a>
                                         </div>
                                     </td>
 

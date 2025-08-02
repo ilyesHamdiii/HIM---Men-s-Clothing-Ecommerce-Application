@@ -9,26 +9,26 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
 from pathlib import Path
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+from dotenv import load_dotenv
+load_dotenv()
+import os 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #secret key here
-STRIPE_PUBLIC_KEY = 'pk_test_51RpTk330CxW6iHSOI48u29pttPBAKJneLbfdFEmfc0f7TFGkBb4gyyJhIYWqwOj6BPd3Y1luvbDkKPu4B9QL7ImX00ol4uJ99B'
-STRIPE_SECRET_KEY = 'sk_test_51RpTk330CxW6iHSOUtC1QdrwHBMFqnstd7eB6xQH32BfamFyDKPWhb4RMusu8Tyn8GAeDozHInjZIKzhOYU9Nnhj00MH8HZGOb'
-
-SECRET_KEY = 'django-insecure-r1jnm024tneh^8$8b(%ywl_hj^(k)y3w1ce#c^u&&q+*ewj)v!'
+STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY")
+STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
+SECRET_KEY = os.getenv("SECRET_KEY")
 DOMAIN = "http://localhost:8000"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
@@ -55,6 +55,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 
     
 ]

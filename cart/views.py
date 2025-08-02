@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST             
 from django.contrib.auth.decorators import login_required     
+from store.models import Order,OrderItem,Customer
 
 
 app_name='cart'
@@ -17,6 +18,8 @@ app_name='cart'
 @login_required
 def view_cart(request):
     cart_items=CartItem.objects.filter(user=request.user)
+    sizee = request.GET.get("size", "")
+
     quantity=request.POST.get('quantity')
     print(request.POST)
     print(quantity)
@@ -27,7 +30,7 @@ def view_cart(request):
     #n=len(product_price)
     
     sub_total=(total_price/100)*120
-    return render(request,"cart/shopping-cart.html",{"cart_items":cart_items,"total_price":total_price,"sub_total":sub_total,"product_price":product_price})
+    return render(request,"cart/shopping-cart.html",{"cart_items":cart_items,"total_price":total_price,"sub_total":sub_total,"product_price":product_price,"size":sizee})
 
 @csrf_exempt
 @login_required
@@ -35,17 +38,18 @@ def add_to_cart(request,product_id):
     sizee = request.GET.get("size", "")
     if sizee:
         try:
-            size_obj = Size.objects.get(name=sizee)
+            size_obj = Size.objects.get(name__iexact=sizee)
         except Size.DoesNotExist:
             size_obj = None
     else:
         size_obj = None
+    print(size_obj)
 
     qt = request.GET.get("quantity", "")
     print(sizee)
     print("User:", request.user)
     product=Product.objects.get(id=product_id)
-    cart_item,created=CartItem.objects.get_or_create(product=product,user=request.user,size=size_obj.name)
+    cart_item,created=CartItem.objects.get_or_create(product=product,user=request.user,size=size_obj)
     print(type(qt))
     if qt:
         cart_item.quantity+=int(qt)
@@ -130,19 +134,19 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 @login_required
 def create_checkout_session(request):
     if request.method == 'POST':
-        # Example: get cart total from session or database
         cart_items = CartItem.objects.filter(user=request.user)
         amount = sum(item.product.price * item.quantity for item in cart_items)
         amount = int(amount * 100)
         line_items=[]
         for item in cart_items:
+            image_url = item.product.image_url
             line_items.append({
                 'price_data': {
                     'currency': 'usd',
                     'product_data': {
                         'name': item.product.name,
-                        'description': item.product.description or '',
-                        "images":[item.product.image_url1]
+                        
+                        "images":[f"{image_url}"],
                     },
                     'unit_amount': int(item.product.price * 100),  # price in cents
                 },
@@ -162,6 +166,8 @@ def checkout_success(request):
     print("COOKIES:", request.COOKIES)
     print("SESSION KEY:", request.session.session_key)
     print("User:", request.user, "Authenticated:", request.user.is_authenticated)
+
+    
     CartItem.objects.filter(user=request.user).delete()
     return render(request, 'cart/success.html', {
         "cart_items": [],
@@ -172,7 +178,7 @@ def checkout_success(request):
 
 @login_required
 def checkout_cancel(request):
-    return render(request, 'store/home  .html', {
+    return render(request, 'store/home.html', {
         "cart_items": [],
         "total_price": 0,
         "sub_total": 0,

@@ -51,8 +51,9 @@ def store2(request):
 def detail(request,product_id):
 
     Products=Product.objects.get(id=product_id)
+    product_list=Product.objects.order_by('?')[:4]
     print(Products)
-    return render(request,"store/shop-details.html",{"products":Products})
+    return render(request,"store/shop-details.html",{"products":Products,"product_list":product_list})
 def store(request):
     order=request.GET.get("order")
 
@@ -94,10 +95,15 @@ def store(request):
 
     return render(request, "store/shop.html", context)
 def store_cat(request, slug):
+    
 
 
     category = get_object_or_404(Category, slug=slug)
+    jacket = get_object_or_404(Category,  slug__iexact="jacket")
+    shoes = get_object_or_404(Category, slug="shoes")
+    category = get_object_or_404(Category, slug=slug)
     products = Product.objects.filter(category=category)
+    print(jacket)
 
     min_price = request.GET.get("min")
     max_price = request.GET.get("max")
@@ -128,6 +134,8 @@ def store_cat(request, slug):
         "min_price": min_price,
         "max_price": max_price,
         "brands": Brand.objects.all(),
+        "jacket":jacket,
+        "shoes":shoes.slug,
     }
     return render(request, "store/shop.html", context)
 def store_brand(request, slug):
@@ -199,7 +207,6 @@ def store_cat2(request):
         except ValueError:
             pass
 
-    # ✅ Apply sorting BEFORE pagination
     if order == "low":
         product_list = product_list.order_by("price")
     elif order == "high":
@@ -223,3 +230,5 @@ def blog(request):
     return render(request,"store/blog.html")
 def contact(request):
     return render(request,"store/contact.html")
+def nothing(request):
+    return render(request,"store/nothing.html")

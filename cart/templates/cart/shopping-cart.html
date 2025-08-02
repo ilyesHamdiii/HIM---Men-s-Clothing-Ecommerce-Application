@@ -82,9 +82,11 @@
                                             <img src="{{item.product.image_url}}" width=100 hight=150 alt="">   
                                         </div>
                                         <div class="product__cart__item__text">
+                                            <a href="{% url 'store:product_detail' item.product.id %}">
                                             <h6>{{item.product.name}}</h6>
                                             <h5>${{item.product.price}}</h5>
-                                            <h8><strong>Size:</strong>{{item.product.size}}</h8>
+                                            <h8 style="text-decoration: none; color: black;"><strong >Size:</strong>{{item.size |default:"All"|upper }}</h8>
+                                            </a>
                                         </div>
                                     </td>
                                         <td class="quantity__item">
