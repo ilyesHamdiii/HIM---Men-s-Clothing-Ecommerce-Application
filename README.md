@@ -1,6 +1,8 @@
 # HIM - Men’s Clothing Ecommerce Application
 
 **HIM** is a Django-based ecommerce application for a men’s clothing brand.
+This project focuses exclusively on backend development, covering cart management, user authentication, and payment processing using Stripe.
+Please note that the frontend interface is not part of this project and is maintained separately.
 
 ---
 
