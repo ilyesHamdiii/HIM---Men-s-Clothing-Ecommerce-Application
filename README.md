@@ -20,7 +20,7 @@ Please note that the frontend interface is not part of this project and is maint
 
 1. **Clone the repository:**
    ```bash
-   git clone <repo-url>
+   git clone <https://github.com/ilyesHamdiii/HIM---Men-s-Clothing-Ecommerce-Application.git>
    cd ecommerce-app
    ```
 2. **Install dependencies:**
